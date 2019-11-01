@@ -13,17 +13,37 @@
 <form action="/example.html" method="POST">
   <label for="name">Name: </label>
   <input type="text" name="name" value="Ariana" id="name">
-  
+  <br>
   <label for="password">Password: </label>
   <input type="password" id="password" name="password">
-  
+  <br>
   <label for="weight">Weight (in lbs): </label>
   <input type="number" name="weight" id="weight" step="1">
-  
+  <br>
   <label for="hardcore">How hardcore are you? </label>
   <input type="range" name="hardcore" id="hardcore" min="0" max="120" step="1">
   
+  <p>Choose your favorite foods:</p>
+  <label for="italian">Italian</label>
+  <input id="italian" name="italian" type="checkbox" value="italian">
+  <br>
+  <label for="chinese">Chinese</label>
+  <input id="chinese" name="chinese" type="checkbox" value="chinese">
+  <br>
+  <label for="mexican">Mexican</label>
+  <input id="mexican" name="mexican" type="checkbox" value="mexican">
+  
   <p>Choose your level of activity:</p>
+  <label for="sedentary">Sedentary</label>
+  <input id="sedentary" name="activity" type="radio" value="sedentary">
+  <br>
+  <label for="normal">Normal</label>
+  <input id="normal" name="activity" type="radio" value="normal">
+  <br>
+  <label for="active">Active</label>
+  <input id="active" name="activity" type="radio" value="active">
+  
+  
   
 </form>  
   
