@@ -123,12 +123,12 @@ export default function PasswordReset() {
             </Button>
             <Grid container>
                 <Grid item xs>
-                <Link to="/signIn">
+                <Link to="/signin">
                     Remember password? Sign In
                 </Link>
                 </Grid>
                 <Grid item>
-                <Link to="/signUp">
+                <Link to="/signup">
                     Don't have an account? Sign Up
                 </Link>
                 </Grid>

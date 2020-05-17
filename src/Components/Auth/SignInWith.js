@@ -78,7 +78,7 @@ export default function SignInWith() {
                 <Grid item xs>
                 </Grid>
                 <Grid item>
-                <Link to="/signIn">
+                <Link to="/signin">
                     Sign in with email
                 </Link>
                 </Grid>

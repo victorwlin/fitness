@@ -123,14 +123,29 @@ function Copyright() {
 
 export default function Weight() {
   const classes = useStyles();
-    const [open, setOpen] = React.useState(true);
-    const handleDrawerOpen = () => {
-        setOpen(true);
-    };
-    const handleDrawerClose = () => {
-        setOpen(false);
-    };
+  const [open, setOpen] = React.useState(true);
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+
+  const [datesToShow, setDatesToShow] = React.useState(14);
+  const [startDate, setStartDate] = React.useState(false);
+  const [endDate, setEndDate] = React.useState(new Date());
+
+  const onChange = datesFromDisplayOptions => {
+    setDatesToShow(datesFromDisplayOptions);
+    setStartDate(false);
+    setEndDate(false);
+  };
+
+  const onFormSubmit = (startDateFromDisplayOptions, endDateFromDisplayOptions) => {
+    setStartDate(startDateFromDisplayOptions);
+    setEndDate(endDateFromDisplayOptions);
+  };
   
   return (
     <div className={classes.root}>
@@ -184,13 +199,13 @@ export default function Weight() {
             {/* Display Options */}
             <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper}>
-                <DisplayOptions />
+                <DisplayOptions onChange={onChange} onFormSubmit={onFormSubmit} />
               </Paper>
             </Grid>
             {/* Weights */}
             <Grid item xs={12}>
               <Paper className={classes.paper}>
-                <Render />
+                <Render datesToShow={datesToShow} startDate={startDate} endDate={endDate} />
               </Paper>
             </Grid>
           </Grid>

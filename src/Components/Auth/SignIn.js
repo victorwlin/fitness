@@ -134,12 +134,12 @@ export default function SignIn() {
             </Button>
             <Grid container>
                 <Grid item xs>
-                <Link to="/passwordReset">
+                <Link to="/passwordreset">
                     Forgot password?
                 </Link>
                 </Grid>
                 <Grid item>
-                <Link to="/signUp">
+                <Link to="/signup">
                     Don't have an account? Sign Up
                 </Link>
                 </Grid>

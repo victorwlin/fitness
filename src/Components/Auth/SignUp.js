@@ -139,7 +139,7 @@ export default function SignUp() {
                 <Grid item xs>
                 </Grid>
                 <Grid item>
-                <Link to="/signIn">
+                <Link to="/signin">
                     Already have an account? Sign In
                 </Link>
                 </Grid>

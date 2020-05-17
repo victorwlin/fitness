@@ -22,7 +22,7 @@ const paths = user => {
   } else {
     return (
       <Router>
-        <SignInWith path="signinwith" />
+        <SignInWith path="/" />
         <SignIn path="signin" />
         <SignUp path="signup" />
         <PasswordReset path="passwordreset" />

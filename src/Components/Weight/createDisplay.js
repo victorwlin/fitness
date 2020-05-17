@@ -1,11 +1,15 @@
-const createDisplay = (weights, datesToShow) => {
+const createDisplay = (weights, datesToShow = 14, startDate = new Date(), endDate = new Date()) => {
     const displayDates = [];
     let displayWeights = [];
     
     /* Create displayDates */
-    // Get today's date and deconstruct it
-    const today = new Date();
-
+    // If a range is given, calculate number of days in the range
+    if (datesToShow === 0) {
+        datesToShow = ((endDate - startDate) / (1000*60*60*24)) + 1;
+        console.log(datesToShow);
+    }
+    
+    // Deconstruct endDate
     const deconstructDate = dateObj => {
         const year = dateObj.getFullYear();
         const month = dateObj.getMonth();
@@ -18,7 +22,7 @@ const createDisplay = (weights, datesToShow) => {
         };
     };
 
-    const deconstructToday = deconstructDate(today);
+    const deconstructedEndDate = deconstructDate(endDate);
 
 
     // Make an array of date objects
@@ -35,7 +39,7 @@ const createDisplay = (weights, datesToShow) => {
         return dateArr;
     };
 
-    const dateArr = constructDateArr(deconstructToday);
+    const dateArr = constructDateArr(deconstructedEndDate);
 
 
     // Change array of date objects into something easier to read

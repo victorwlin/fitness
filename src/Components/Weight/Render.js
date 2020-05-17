@@ -4,7 +4,6 @@ import { firestore } from "../../firebase";
 import { UserContext } from "../../providers/UserProvider";
 import createDisplay from "./createDisplay";
 
-import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -12,17 +11,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 
 
-const useStyles = makeStyles((theme) => ({
-    seeMore: {
-      marginTop: theme.spacing(3),
-    },
-}));
-
-
-const Render = () => {
-    const classes = useStyles();
-    
-    const [datesToShow, setDatesToShow] = useState(14);
+const Render = props => {
     const [weights, setWeights] = useState({});
     
     const user = useContext(UserContext);
@@ -50,13 +39,13 @@ const Render = () => {
     );
 
 
-    const onNumOfDatesChange = event => {
-        setDatesToShow(event.target.value);
-    };
-
-
     const showDates = () => {
-        const combined = createDisplay(weights, datesToShow);
+        let combined = {};
+        if (props.startDate) {
+            combined = createDisplay(weights, 0, props.startDate, props.endDate);
+        } else {
+            combined = createDisplay(weights, props.datesToShow);
+        }
      
         return (
             Object.keys(combined).map(obj => {
