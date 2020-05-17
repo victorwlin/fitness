@@ -7,6 +7,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import { firestore } from "../../firebase";
 import { UserContext } from "../../providers/UserProvider";
+import Title from "../Dashboard/Title";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -95,6 +96,8 @@ export default function Input() {
 
 
   return (
+    <div>
+    <Title>Input</Title>
     <form
         className={classes.container}
         noValidate
@@ -137,5 +140,6 @@ export default function Input() {
     </Button>
     </Grid>
     </form>
+    </div>
   );
 }

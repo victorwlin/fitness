@@ -6,7 +6,6 @@ const createDisplay = (weights, datesToShow = 14, startDate = new Date(), endDat
     // If a range is given, calculate number of days in the range
     if (datesToShow === 0) {
         datesToShow = ((endDate - startDate) / (1000*60*60*24)) + 1;
-        console.log(datesToShow);
     }
     
     // Deconstruct endDate

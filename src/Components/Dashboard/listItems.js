@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "@reach/router";
+import { Link, navigate } from "@reach/router";
 
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -14,42 +14,41 @@ import { auth } from "../../firebase";
 
 export const mainListItems = (
   <div>
-    <Link to="/">
-    <ListItem button>
+    <ListItem button onClick={() => navigate("/")}>
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
       <ListItemText primary="Dashboard" />
     </ListItem>
-    </Link>
-
-    <Link to="/weight">
-    <ListItem button>
+    
+    <ListItem button onClick={() => navigate("/weight")}>
       <ListItemIcon>
         <WebAssetIcon />
       </ListItemIcon>
       <ListItemText primary="Weight Tracker" />
     </ListItem>
-    </Link>
-
+    
     <ListItem button>
       <ListItemIcon>
         <FitnessCenterIcon />
       </ListItemIcon>
       <ListItemText primary="Exercise (Coming Soon)" />
     </ListItem>
+    
     <ListItem button>
       <ListItemIcon>
         <RestaurantIcon />
       </ListItemIcon>
       <ListItemText primary="Nutrition (Coming Soon)" />
     </ListItem>
+    
     <ListItem button onClick={() => auth.signOut()}>
       <ListItemIcon>
         <ExitToAppIcon />
       </ListItemIcon>
       <ListItemText primary="Sign Off" />
     </ListItem>
+
   </div>
 );
 

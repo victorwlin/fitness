@@ -7,6 +7,9 @@ import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
+import Title from "../Dashboard/Title";
+import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -42,11 +45,18 @@ const DisplayOptions = props => {
         event.preventDefault();
         const formatStartDate = new Date(startDate);
         const formatEndDate = new Date(endDate);
-        props.onFormSubmit(formatStartDate, formatEndDate);
+
+        if (formatStartDate <= formatEndDate) {
+          props.onFormSubmit(formatStartDate, formatEndDate);
+        } else {
+          window.alert("Start date must be before end date.");
+        }
+        
     };
     
     return (
         <div>
+        <Title>Display Options</Title>
         <FormControl variant="outlined" className={classes.formControl}>
         <InputLabel id="datesToShow">Dates to Show</InputLabel>
         <Select
@@ -64,6 +74,9 @@ const DisplayOptions = props => {
         </Select>
         </FormControl>
         
+        <Divider />
+
+        <Typography>Custom Range</Typography>
         <form
         className={classes.container}
         noValidate
