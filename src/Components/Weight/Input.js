@@ -97,7 +97,7 @@ export default function Input() {
 
   return (
     <div>
-    <Title>Input</Title>
+    <Title>Enter & Edit</Title>
     <form
         className={classes.container}
         noValidate
@@ -137,7 +137,7 @@ export default function Input() {
         fullWidth
         >
         Submit
-    </Button>
+      </Button>
     </Grid>
     </form>
     </div>

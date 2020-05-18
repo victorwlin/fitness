@@ -1,4 +1,5 @@
 import React from 'react';
+
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -19,6 +20,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems } from '../Dashboard/listItems';
+import Button from '@material-ui/core/Button';
 
 import Input from "./Input";
 import Render from "./Render";
@@ -135,6 +137,7 @@ export default function Weight() {
   const [datesToShow, setDatesToShow] = React.useState(14);
   const [startDate, setStartDate] = React.useState(false);
   const [endDate, setEndDate] = React.useState(new Date());
+  const [showOptions, setShowOptions] = React.useState(false);
 
   const onChange = datesFromDisplayOptions => {
     setDatesToShow(datesFromDisplayOptions);
@@ -145,6 +148,19 @@ export default function Weight() {
   const onFormSubmit = (startDateFromDisplayOptions, endDateFromDisplayOptions) => {
     setStartDate(startDateFromDisplayOptions);
     setEndDate(endDateFromDisplayOptions);
+  };
+
+  const showTableOptions = () => {
+    if (showOptions) {
+      return (
+        <DisplayOptions
+          onChange={onChange}
+          onFormSubmit={onFormSubmit}
+        />
+      );
+    } else {
+      return null;
+    }
   };
   
   return (
@@ -186,20 +202,30 @@ export default function Weight() {
         <Divider />
         <List>{mainListItems}</List>
       </Drawer>
+      
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
             {/* Input */}
-            <Grid item xs={12} md={8} lg={9}>
-              <Paper className={fixedHeightPaper}>
+            <Grid item xs={12} md={6} lg={6}>
+              <Paper className={classes.paper}>
                 <Input />
               </Paper>
             </Grid>
             {/* Display Options */}
-            <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <DisplayOptions onChange={onChange} onFormSubmit={onFormSubmit} />
+            <Grid item xs={12} md={6} lg={6}>
+              <Paper className={classes.paper}>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  color="primary"
+                  fullWidth
+                  onClick={() => showOptions ? setShowOptions(false) : setShowOptions(true)}
+                  >
+                  {`${showOptions ? "Hide" : "Show"} Table Display Options`}
+                </Button>
+                {showTableOptions()}
               </Paper>
             </Grid>
             {/* Weights */}

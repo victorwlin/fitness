@@ -56,7 +56,7 @@ const DisplayOptions = props => {
     
     return (
         <div>
-        <Title>Display Options</Title>
+        <Title>Table Display Options</Title>
         <FormControl variant="outlined" className={classes.formControl}>
         <InputLabel id="datesToShow">Dates to Show</InputLabel>
         <Select
