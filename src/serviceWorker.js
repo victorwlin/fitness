@@ -74,6 +74,12 @@ function registerValidSW(swUrl, config) {
                   'tabs for this page are closed. See https://bit.ly/CRA-PWA.'
               );
 
+              if (Notification.permission == "granted") {
+                navigator.serviceWorker.getRegistration().then(reg => {
+                  reg.showNotification("An update has been downloaded and will be installed when the app is closed.");
+                });
+              }
+
               // Execute callback
               if (config && config.onUpdate) {
                 config.onUpdate(registration);
