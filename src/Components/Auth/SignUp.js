@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "@reach/router";
+import { Link, useNavigate } from "@reach/router";
 
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -15,7 +15,6 @@ import Container from '@material-ui/core/Container';
 import { FormHelperText } from "@material-ui/core";
 
 import { auth } from "../../firebase";
-
 
 
 const useStyles = makeStyles((theme) => ({
@@ -43,7 +42,7 @@ function Copyright() {
     return (
       <Typography variant="body2" color="textSecondary" align="center">
         {'Copyright © '}
-        <LinkUI color="inherit" href="https://fitness-bcc01.web.app/">
+        <LinkUI color="inherit" href="https://weight-tracker-d90aa.web.app/">
           Weight Tracker
         </LinkUI>{' '}
         {new Date().getFullYear()}
@@ -60,6 +59,7 @@ export default function SignUp() {
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
 
+    const navigate = useNavigate();
 
     const onChangeHandler = event => {
         const {name, value} = event.currentTarget;
@@ -72,11 +72,12 @@ export default function SignUp() {
     };
     
     
-    const createUserWithEmailAndPasswordHandler = async (event, email, password) => {
+    const createUserWithEmailAndPasswordHandler = async (event, email, password) => {        
         event.preventDefault();
     
         try{
             await auth.createUserWithEmailAndPassword(email, password);
+            navigate("/");
         }
         catch(error){
             setError(error);
@@ -92,7 +93,7 @@ export default function SignUp() {
             <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
-            Sign up
+                Sign up
             </Typography>
             <form
                 className={classes.form}

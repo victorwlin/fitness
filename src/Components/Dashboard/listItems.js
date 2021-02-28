@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, navigate } from "@reach/router";
+import { navigate } from "@reach/router";
 
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -42,7 +42,10 @@ export const mainListItems = (
       <ListItemText primary="Nutrition (Coming Soon)" />
     </ListItem>
     
-    <ListItem button onClick={() => auth.signOut()}>
+    <ListItem button onClick={() => {
+      auth.signOut();
+      navigate("/");
+    }}>
       <ListItemIcon>
         <ExitToAppIcon />
       </ListItemIcon>

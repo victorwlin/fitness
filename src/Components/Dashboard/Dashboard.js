@@ -109,7 +109,7 @@ function Copyright() {
     return (
       <Typography variant="body2" color="textSecondary" align="center">
         {'Copyright © '}
-        <Link color="inherit" href="https://fitness-bcc01.web.app/">
+        <Link color="inherit" href="https://weight-tracker-d90aa.web.app/">
           Weight Tracker
         </Link>{' '}
         {new Date().getFullYear()}

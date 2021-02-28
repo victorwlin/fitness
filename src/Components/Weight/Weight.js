@@ -132,7 +132,6 @@ export default function Weight() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   const [datesToShow, setDatesToShow] = React.useState(14);
   const [startDate, setStartDate] = React.useState(false);

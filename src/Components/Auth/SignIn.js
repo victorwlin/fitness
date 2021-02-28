@@ -17,7 +17,6 @@ import { FormHelperText } from "@material-ui/core";
 import { auth } from "../../firebase";
 
 
-
 const useStyles = makeStyles((theme) => ({
     paper: {
       marginTop: theme.spacing(8),
@@ -43,7 +42,7 @@ function Copyright() {
     return (
       <Typography variant="body2" color="textSecondary" align="center">
         {'Copyright © '}
-        <LinkUI color="inherit" href="https://fitness-bcc01.web.app/">
+        <LinkUI color="inherit" href="https://weight-tracker-d90aa.web.app/">
           Weight Tracker
         </LinkUI>{' '}
         {new Date().getFullYear()}
